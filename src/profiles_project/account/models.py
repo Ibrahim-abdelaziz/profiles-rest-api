@@ -33,14 +33,20 @@ class UserProfileManager(BaseUserManager):
  
 class Users(AbstractBaseUser, PermissionsMixin):
 
-    email = models.EmailField(max_length = 50, null = False, unique = True)
-    is_staff = models.BooleanField(default=False)
     username = None
+    email = models.EmailField(max_length=50, null = False, unique = True)
+    is_staff = models.BooleanField(default=True)
 
     objects = UserProfileManager()
+    
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['password']
 
+    def get_full_name(self):
+        return self.email 
+
+    def get_short_name(self):
+        return self.email
 
     def __str__(self):
         return self.email

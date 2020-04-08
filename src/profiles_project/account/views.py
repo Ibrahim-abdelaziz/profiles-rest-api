@@ -41,7 +41,7 @@ class LogInView(APIView):
 
                     return Response({'token': token.key})
                 else:
-                    return Response({'token': "This is credential is not valid"})
+                    return Response({'token': "This credential is not valid"})
             else:
                 return Response({'error': "Not Authorized"}, status=401)
 
