@@ -6,6 +6,6 @@ from account.views import UserSignUP, LogInView
 
 
 urlpatterns = [
-    url('signup/',UserSignUP.as_view()),
-    url('login/', LogInView.as_view()),
+    url(r'signup/',UserSignUP.as_view()),
+    url(r'login/', LogInView.as_view()),
 ]

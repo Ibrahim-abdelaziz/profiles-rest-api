@@ -5,15 +5,14 @@ from .models import Users
 # Serializer To Validated Data [Create, Update] 
 
 class UsersSerializer(serializers.ModelSerializer):
-    password = serializers.CharField(write_only=True)
+    # password = serializers.CharField(write_only=True)
 
     class Meta:
         model = Users
         fields = ['email', 'password']
 
     def create(self, validated_data):
-        """Create and return new user.
-        it's a controller of how new user are created"""
+        """Create and return new user."""
 
         user = Users(**validated_data)
         user.set_password(validated_data['password'])

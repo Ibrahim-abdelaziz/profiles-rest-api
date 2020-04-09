@@ -12,8 +12,8 @@ from rest_framework.authentication import TokenAuthentication
 class MetadataView(viewsets.ModelViewSet):
     serializer_class = MetadataSerializer
     queryset = Metadata.objects.all()
-    permission_classes = [permissions.IsAuthenticated]
-    authentication_classes = (TokenAuthentication,)
+    # permission_classes = [permissions.IsAuthenticated]
+    # authentication_classes = (TokenAuthentication,)
 
     def get_queryset(self):
         query = super().get_queryset()
@@ -29,8 +29,8 @@ class DocumentView(viewsets.ModelViewSet):
     parser_classes = (MultiPartParser, FormParser)
     serializer_class = DocumentSerializer
     queryset = Document.objects.all()
-    permission_classes = [permissions.IsAuthenticated]
-    authentication_classes = (TokenAuthentication,)
+    # permission_classes = [permissions.IsAuthenticated]
+    # authentication_classes = (TokenAuthentication,)
 
     def get_queryset(self):
         query = super().get_queryset()
