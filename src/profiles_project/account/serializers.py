@@ -15,7 +15,7 @@ class UsersSerializer(serializers.ModelSerializer):
         """Create and return new user.
         it's a controller of how new user are created"""
 
-        user = models.Users(**validated_data)
+        user = Users(**validated_data)
         user.set_password(validated_data['password'])
         user.save()
 

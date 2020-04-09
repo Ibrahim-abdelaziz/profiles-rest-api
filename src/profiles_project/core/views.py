@@ -15,14 +15,12 @@ class MetadataView(viewsets.ModelViewSet):
     permission_classes = [permissions.IsAuthenticated]
     authentication_classes = (TokenAuthentication,)
 
-
     def get_queryset(self):
-        query = self.queryset
-        name = self.request.query_params.get('name',None)
+        query = super().get_queryset()
 
+        name = self.request.query_params.get('name',None)
         if name:
             query = query.filter(name=name)
-
         return query
 
 
@@ -34,14 +32,12 @@ class DocumentView(viewsets.ModelViewSet):
     permission_classes = [permissions.IsAuthenticated]
     authentication_classes = (TokenAuthentication,)
 
-
     def get_queryset(self):
-        query = self.queryset
+        query = super().get_queryset()
+
         name = self.request.query_params.get('name',None)
-        
         if name:
            query = query.filter(name=name)
-
         return query
     
     def create(self, request):
